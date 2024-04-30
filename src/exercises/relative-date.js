@@ -14,9 +14,51 @@
 * */
 
 const calculateRelativeDate = (inputDate) => {
-  return `TODO: Please see the above requirement`;
-};
+  const today_date = new Date().getDate();
+  const today_month = new Date().getUTCMonth() + 1;
+  const today_year = new Date().getFullYear();
 
+  const relativeDate = new Date(inputDate).getDate();
+  const relativeMonth = new Date(inputDate).getUTCMonth() + 1;
+  const relativeYear = new Date(inputDate).getFullYear();
+
+  let date_string = '';
+  if (today_date == relativeDate &&
+    today_month == relativeMonth &&
+    today_year == relativeYear) {
+    date_string = "Today";
+  }
+  else if (((today_date - 1 > relativeDate) && (relativeDate > today_date - 7)) &&
+    today_month == relativeMonth &&
+    today_year == relativeYear) {
+    date_string = "This week";
+  }
+  else if ((relativeDate <= today_date - 14) &&
+    today_month == relativeMonth &&
+    today_year == relativeYear) {
+    date_string = "This month";
+  }
+  else if (((today_date - 7 > relativeDate) && (relativeDate > today_date - 14)) &&
+    today_month == relativeMonth &&
+    today_year == relativeYear) {
+    date_string = "Last week";
+  }
+  else if (today_month - 1 == relativeMonth) {
+    date_string = "Last month";
+  }
+  else if (today_year - 1 == relativeYear) {
+    date_string = "Last Year";
+  }
+  else if (today_date - 1 == relativeDate &&
+    today_month == relativeMonth &&
+    today_year == relativeYear) {
+    date_string = "Yesterday";
+  }
+  else {
+    date_string = "Long Time Ago"
+  }
+  return date_string;
+};
 const View = {
   init: () => {
     document.getElementById('relative-date-btn').addEventListener('click', () => {
@@ -28,4 +70,4 @@ const View = {
 };
 
 document.addEventListener('DOMContentLoaded', View.init);
-export {calculateRelativeDate};
+export { calculateRelativeDate };
