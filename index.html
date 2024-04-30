@@ -2,9 +2,17 @@
 <html>
 <head>
     <link rel="stylesheet" href="/src/components/tab/tab.css" />
+    <link rel="stylesheet" href="/src/components/tab/numeric-input.css" />
 </head>
 <body>
 <div id="root">
+    <script>
+         function resetInput(){
+            const inputText = document.getElementById('input-text-box');
+            inputText.setAttribute('class','c-numeric-input');
+            inputText.value = '';
+    }
+    </script>
     <div class="c-tab" data-default-tab="0">
         <div class="c-tab--btns">
             <button data-for-tab="0">Numeric Input</button>
@@ -15,7 +23,8 @@
             <div data-tab="0">
                 <h1>Numeric Input Component</h1>
                 <label>Enter Number: </label>
-                <input class="c-numeric-input" type="text"/>
+                <input class="c-numeric-input" onfocus="resetInput()" type="text" id="input-text-box"/>
+                <span id="error-span"></span>
             </div>
             <div data-tab="1">
                 <h1>Relative Date</h1>
@@ -41,6 +50,7 @@
     </div>
 </div>
 
-<script type="module" src="src/app.js" defer></script>
+<script type="module" src="src/app.js" defer>
+</script>
 </body>
 </html>

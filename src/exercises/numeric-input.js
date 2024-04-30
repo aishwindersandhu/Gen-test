@@ -16,10 +16,37 @@
 *
 * Lastly, please add some css for c-numeric-input--error and c-numeric-input--valid to show
 * red or green border to the input
-* */
 
+* */
+const checkInputData = function () {
+
+  const isAplhabet = isNaN(this.value);
+  const inputTextBox = document.getElementById('input-text-box');
+  if (isAplhabet) {
+    const errorDiv = document.getElementById('error-span');
+    errorDiv.classList.add('error-text');
+    errorDiv.innerText = 'Invalid input. Enter a number';
+    inputTextBox.classList.add('c-numeric-input--error');
+
+  }
+  else {
+    let value;
+    if (this.value > 1) {
+      value = parseInt(this.value, 10);
+
+    }
+    else {
+      value = parseFloat(this.value, 10);
+    }
+    this.value = value;
+    inputTextBox.classList.add('c-numeric-input--valid');
+  }
+}
 const NumericInput = {
   init: () => {
+    const inputElement = document.getElementById('input-text-box');
+    inputElement.addEventListener('change', checkInputData);
+
     document.querySelectorAll('.c-numeric-input').forEach(elem => {
       console.log('TODO: Please see the above requirement for numeric input');
     });
