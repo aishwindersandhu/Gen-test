@@ -19,11 +19,12 @@
 
 * */
 const checkInputData = function () {
-
+  //check if data is alphabet or number
   const isAplhabet = isNaN(this.value);
   const inputTextBox = document.getElementById('input-text-box');
   const errorDiv = document.getElementById('error-span');
   if (isAplhabet) {
+    //add class for error
     errorDiv.classList.add('error-text');
     errorDiv.innerText = 'Invalid input. Enter a number';
     inputTextBox.classList.add('c-numeric-input--error');
@@ -32,9 +33,9 @@ const checkInputData = function () {
   else {
     errorDiv.innerText = '';
     let value;
+    //parse data as per value
     if (this.value > 1) {
       value = parseInt(this.value, 10);
-
     }
     else {
       value = parseFloat(this.value, 10);

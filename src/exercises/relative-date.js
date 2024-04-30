@@ -55,7 +55,7 @@ const calculateRelativeDate = (inputDate) => {
     date_string = "Yesterday";
   }
   else {
-    date_string = "Long Time Ago"
+    date_string = "Long Time Ago";
   }
   return date_string;
 };
