@@ -9,8 +9,10 @@
     <script>
          function resetInput(){
             const inputText = document.getElementById('input-text-box');
+            const errorDiv = document.getElementById('error-span');
             inputText.setAttribute('class','c-numeric-input');
             inputText.value = '';
+            errorDiv.innerText = '';
     }
     </script>
     <div class="c-tab" data-default-tab="0">

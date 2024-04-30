@@ -22,14 +22,15 @@ const checkInputData = function () {
 
   const isAplhabet = isNaN(this.value);
   const inputTextBox = document.getElementById('input-text-box');
+  const errorDiv = document.getElementById('error-span');
   if (isAplhabet) {
-    const errorDiv = document.getElementById('error-span');
     errorDiv.classList.add('error-text');
     errorDiv.innerText = 'Invalid input. Enter a number';
     inputTextBox.classList.add('c-numeric-input--error');
 
   }
   else {
+    errorDiv.innerText = '';
     let value;
     if (this.value > 1) {
       value = parseInt(this.value, 10);
